@@ -1,0 +1,206 @@
+body{
+	animation: gradient 5s ease infinite;
+	background: linear-gradient(-60deg, black, #6495ED, #FFA07A, #48D1CC, #00FFFF) no-repeat; /*cores, -45 é a direção em que as cores irá se movimentar*/
+	background-size: 300% 300%;
+	display: flex center;
+	align-items: center;
+	justify-content: center;
+	height: 100vh; /*para ocupar toda a tela*/
+	font-size: 300%;
+}
+
+@keyframes gradient { /*Animação degrade*/
+	0%{
+		background-position: 0 50%;
+	}
+	50%{
+		background-position: 100% 50%;
+	}
+	100%{
+		background-position: 0% 50%;
+	}
+}
+.centroForm{
+	max-width: 500px; /*Formulário possui largura máxima de 500px*/
+	background-color: white; /*Formulário possui fundo branco*/
+	width: 70%; /*Formulário possui largura de 70% da tela*/
+	position: absolute;
+	left: 50%; /*Formulário está afastado a 50% da esquerda*/
+	top: 53%; /*Formulário está afastadoo a 50% do topo*/
+	transform: translate(-50%,-50%);
+	padding: 30px;
+	animation-name: openForm; /*chamando a animação*/
+	animation-duration: 3s;
+	animation-timing-function: cubic-bezier(.06,1.54,.9,.29);
+}
+
+@keyframes openForm{ /*Animação do formulário*/
+	0%{
+		background-color: #48d1cc
+		opacity: 0.5;
+		border-radius: 0;
+	}
+
+	50%{
+		background-color: #48d1cc;
+		opacity: 0.5;
+		border-radius: 50% 0 50% 0;
+		transform: rotate(0.5turn);
+	}
+
+	100%{
+		border-radius: 50%;
+		opacity: 1;
+	}
+}
+
+form input[type="email"], form input[type="password"]{ /* campo de texto e campo de senha*/
+	width: 100%; /*largura*/
+	height: 45px; /*altura*/
+	border: 1px solid #ccc; /*borda*/
+	padding-left: 10px;
+	margin: 11px -7px;
+}
+
+form input[type=submit]{ /*botao entrar*/
+	width: 70%; /*largura*/
+	height: 44px; /*altura*/
+	cursor: pointer; /*mouse com a mão*/
+	background-color: #5F7C8A; /*cor de fundo*/
+	color: white; /*letra branca*/
+	border: 0;
+	border-radius: 20px; /*borda um pouco redonda*/
+	/*margin: 11px 73px;*/
+	margin: 5% 15%;
+	transition: 1s; /*a cor verde irá demorar 1s para ser mostrada*/
+}
+
+
+form h3{
+	font-family: arial;
+	text-align: center;
+	color:#48D1CC
+ }
+
+form input[type=submit]:hover{ /*passar o mouse no botao e ficar verde*/
+	background-color: #66CDAA;
+}
+
+@media only screen and (max-device-width: 900px) {
+	.div {
+		width:100%;
+	}
+	.centroForm{
+		padding: 100px;
+		max-height:500px;
+		margin-top: 50%;
+		margin-bottom: 50%;
+		font-size: 100%;
+	}
+}
+
+/*ICONE*/
+
+header{ /*Enfeitando o Cabeçalho*/
+    width: 100%; /*irá ocupar 100% da tela a direita*/
+    height: 55px; /*Possui 50px de altura*/
+    top: 0; /*Estará colado no topo*/
+    left: 0; /*Estará colado a esquerda*/
+    background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%); /*Fundo Do cabeçalho degrade*/
+    position: fixed;
+    margin-top: -10px;
+}
+
+.voltar{
+    margin-top: -15px;
+    background-color: #111;
+    border-left: solid 5px #444;
+}
+
+.voltar:hover{
+    background-color:white;
+    color:black;
+}
+
+.menu-icon{ /*Enfeitando as três barrinhas*/
+    position: fixed; /*terá posição fixa*/
+    font-size: 25px; /*Letras terá 25px*/
+    font-weight: bold; /*Negrito*/
+    padding: 5px;
+    width: 40px; /*Largura*/
+    height: 38px; /*Altura*/
+    text-align: center; /*Texto ao centro*/
+    background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+    color: white; /*Cor do texto branco*/
+    cursor: pointer; /*maozinha*/
+    transition: all .5s; /*Qualquer transição terá duração de 0.5s*/
+    left: 0px; /*colado a esquerda*/
+    top: 0px; /*colado ao topo*/
+}
+
+.menu-icon:hover{ /*Efeito ao passar mouse nas três barras*/
+    transform: rotate(1turn);
+    border-radius: 50%; /*Modificando o fundo*/
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+.menu{
+    height: 100%; /*Altura irá ocupar toda a tela*/
+    position: fixed; /*Posição fixa*/
+    background-color: black; /*Modificando o fundo*/
+    top: 0px; /*colado ao topo*/
+    overflow: hidden; /*não aparece*/
+    transition: all 0.3s; /*Qualquer transição ira demorar 0.3s*/
+}
+
+#principal{
+    width: 300px; /*Largura*/
+    left: -300px;
+}
+
+#chk:checked ~ #principal{
+    transform: translateX(300px);
+}
+
+#chk:checked ~ .bg{
+    display: block;
+}
+
+#chk{ /*caixinha de click*/
+    opacity: 0;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: none;
+    background-color: rgba(0,0,0, .6);
+}
+
+#fundo{
+    background-color: black;
+}
+
+#fundo:hover{
+    background-color:red;
+    color:black;
+}
+
+ul, li, a{
+    display: block;
+    font-size: 18px; /*tamanho das letras*/
+    font-family: 'Arial'; /*tipo da fonte*/
+    padding: 10px;
+    color: #ccc; /*Cor da letra*/
+    text-decoration: none;
+    transition: all .4s; /*qualquer transição dura 0.4s*/
+}
+
+ul, li, span{
+    float: reverse;
+}
+
+/*FIM DO ICONE*/
